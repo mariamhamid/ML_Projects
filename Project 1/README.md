@@ -1,82 +1,92 @@
-Titanic Survival Prediction 🚢
-🎯 Objective
+<h1 style="font-size:55px; text-align:center; font-weight:bold;">🚢 Titanic Survival Prediction</h1>
 
-Build, optimize, and compare machine learning models to predict whether a passenger survived the Titanic disaster based on their attributes. This project demonstrates feature engineering, pipeline creation, model training, hyperparameter tuning, and evaluation using multiple classifiers.
+---
 
-📊 Dataset
+<h2 style="font-size:35px; font-weight:bold;">🎯 Objective</h2>
+<p style="font-size:25px;">
+Build and optimize a machine learning model to predict whether a passenger survived the sinking of the Titanic based on their attributes.  
+The project compares the performance of a <b>Random Forest Classifier</b> and a <b>Logistic Regression</b> model.
+</p>
 
-The project uses the Titanic Survival Dataset from Kaggle.
+---
 
-Dataset link: https://www.kaggle.com/competitions/titanic/data
+<h2 style="font-size:35px; font-weight:bold;">📊 Dataset</h2>
+<p style="font-size:25px;">
+<b>Source:</b> Titanic Survival Dataset (from the Seaborn library / Kaggle equivalent).  
+<b>Target variable:</b> <code>survived</code>  
+- <code>1</code> → Passenger survived  
+- <code>0</code> → Passenger did not survive  
+</p>
 
-Target variable: survived
+---
 
-1 → passenger survived
+<h2 style="font-size:35px; font-weight:bold;">🔑 Key Steps</h2>
 
-0 → passenger did not survive
+<h3 style="font-size:28px; font-weight:bold;">1. Select Features</h3>
+<p style="font-size:25px;">
+Features: <code>pclass</code>, <code>sex</code>, <code>age</code>, <code>sibsp</code>, <code>parch</code>, <code>fare</code>, <code>class</code>, <code>who</code>, <code>adult_male</code>, <code>alone</code>  
+Target: <code>survived</code>  
+</p>
 
-Selected features:
+<h3 style="font-size:28px; font-weight:bold;">2. Split Data</h3>
+<p style="font-size:25px;">
+Training & testing sets  
+Stratification applied for class imbalance  
+</p>
 
-pclass, sex, age, sibsp, parch, fare, class, who, adult_male, alone
+<h3 style="font-size:28px; font-weight:bold;">3. Define Preprocessing</h3>
+<p style="font-size:25px;">
+<b>Numerical pipeline:</b> imputation (median) + scaling  
+<b>Categorical pipeline:</b> imputation (most frequent) + one-hot encoding  
+Combined with <b>ColumnTransformer</b>  
+</p>
 
-🔑 Key Steps
-1. Data Splitting
+<h3 style="font-size:28px; font-weight:bold;">4. Create Model Pipeline</h3>
+<p style="font-size:25px;">
+Preprocessor + classifier in a single pipeline  
+Initial model: <b>RandomForestClassifier</b>  
+</p>
 
-The dataset is split into training and testing sets
+<h3 style="font-size:28px; font-weight:bold;">5. Train & Optimize</h3>
+<p style="font-size:25px;">
+<b>GridSearchCV</b> with <b>StratifiedKFold (cv=5)</b> for hyperparameter tuning  
+</p>
 
-Stratification is applied to handle slight class imbalance in the target variable
+<h3 style="font-size:28px; font-weight:bold;">6. Evaluate Performance</h3>
+<p style="font-size:25px;">
+Metrics: precision, recall, F1, accuracy  
+Confusion matrix visualization  
+</p>
 
-2. Feature Preprocessing
+<h3 style="font-size:28px; font-weight:bold;">7. Compare Models</h3>
+<p style="font-size:25px;">
+Logistic Regression vs. Random Forest  
+Performance compared side by side  
+</p>
 
-Separate pipelines for numerical and categorical features
+---
 
-ColumnTransformer is used to combine the pipelines into a unified preprocessing step
+<h2 style="font-size:35px; font-weight:bold;">🛠️ Tech Stack</h2>
+<p style="font-size:25px;">
+- Python 🐍  
+- Pandas  
+- NumPy  
+- Scikit-learn  
+- Seaborn  
+- Matplotlib  
+</p>
 
-3. Model Pipeline Creation
+---
 
-A Pipeline is created combining the preprocessor with a classifier
-
-Initial classifier: RandomForestClassifier
-
-4. Model Training & Optimization
-
-GridSearchCV is used with Stratified K-Fold (cv=5)
-
-Hyperparameters of the classifier are tuned for optimal performance
-
-5. Evaluation
-
-Performance metrics:
-
-Accuracy
-
-Precision
-
-Recall
-
-Confusion Matrix
-
-Evaluated on unseen test data
-
-6. Model Comparison
-
-The classifier in the pipeline is replaced with LogisticRegression
-
-Performance is compared to Random Forest to determine the most effective model
-
-🛠️ Tech Stack
-
-Programming Language: Python
-
-Libraries: Pandas, NumPy, Scikit-learn, Seaborn, Matplotlib
-
-✅ Outcome
-
-Successfully built and optimized two classification models
-
-Logistic Regression showed a slight performance edge over Random Forest
-
-Demonstrates the importance of:
+<h2 style="font-size:35px; font-weight:bold;">✅ Outcome</h2>
+<p style="font-size:20px;">
+- Built & optimized <b>Random Forest</b> and <b>Logistic Regression</b> models  
+- Logistic Regression showed a slight performance edge. 
+ Project highlights:
+  Importance of preprocessing pipelines,  
+   Different model interpretations of features, 
+   Value of hyperparameter tuning & evaluation metrics  
+</p>
 
 Feature preprocessing pipelines
 
